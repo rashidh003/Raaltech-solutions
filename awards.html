@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Awards &amp; Recognition | RAALTECH Solutions – I³C</title>
-  <meta name="description" content="I³C award categories, nomination process, eligibility criteria, evaluation and selection, and how to apply.">
+  <title>Awards &amp; Recognition | I³RC</title>
+  <meta name="description" content="I³RC award categories, nomination process, eligibility criteria, evaluation and selection, and how to apply.">
   <meta name="theme-color" content="#003082">
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -93,7 +93,7 @@
           <ul class="check-list">
             <li>Nominations will be assessed against the relevant award criteria, supporting evidence, originality, impact, and demonstrated achievements.</li>
             <li>The selection committee's decisions will be based on the published evaluation process and applicable conflict-of-interest safeguards.</li>
-            <li>I³C reserves the right not to confer an award in a category if nominations do not meet the required standards.</li>
+            <li>I³RC reserves the right not to confer an award in a category if nominations do not meet the required standards.</li>
             <li>A nominal fee may be charged towards nomination processing, evaluation, and award administration, where applicable. The applicable fee and payment terms will be communicated to applicants in advance.</li>
           </ul>
         </div>
@@ -119,7 +119,7 @@
         <div class="placeholder reveal">
           <i class="fa-solid fa-medal"></i>
           <h4>Awardee list will be updated soon</h4>
-          <p>Recipients of I³C awards will be featured here following each awards ceremony, including the ICIPRRDAC 2026 Awards Ceremony in Thailand.</p>
+          <p>Recipients of I³RC awards will be featured here following each awards ceremony, including the ICIPRRDAC 2026 Awards Ceremony in Thailand.</p>
         </div>
       </div>
     </section>
@@ -128,11 +128,16 @@
       <div class="container split split-wide" style="align-items:start">
         <div class="form-card reveal">
           <span class="eyebrow">Apply for Awards</span>
-          <h2 style="font-size:1.8rem">Submit a nomination</h2>
-          <p class="muted">Share the nominee's details. Our team will send the full application form and document checklist.</p>
-          <form data-form="award" data-title="I3C Award Nomination" novalidate>
+          <h2 style="font-size:1.8rem">Award nomination form</h2>
+          <p class="muted">Fields marked <span class="text-orange">*</span> are required.</p>
+          <form data-form="award" data-title="I3RC Award Nomination" novalidate>
             <div class="form-grid">
-              <div class="field"><label for="a-name">Nominee name <span class="req">*</span></label><input id="a-name" type="text" required></div>
+              <div class="field full"><label for="a-name">Nominee/Applicant Name <span class="req">*</span></label><input id="a-name" type="text" autocomplete="name" required></div>
+              <div class="field"><label for="a-desig">Designation <span class="req">*</span></label><input id="a-desig" type="text" autocomplete="organization-title" required></div>
+              <div class="field"><label for="a-org">Institution/Organization/Industry <span class="req">*</span></label><input id="a-org" type="text" autocomplete="organization" required></div>
+              <div class="field"><label for="a-email">Email address <span class="req">*</span></label><input id="a-email" name="email" type="email" autocomplete="email" required></div>
+              <div class="field"><label for="a-mobile">Mobile number <span class="req">*</span></label><input id="a-mobile" type="tel" autocomplete="tel" required></div>
+              <div class="field"><label for="a-wa">Whatsapp number</label><input id="a-wa" type="tel"></div>
               <div class="field"><label for="a-cat">Award category <span class="req">*</span></label>
                 <select id="a-cat" required>
                   <option value="">Select an award</option>
@@ -148,17 +153,31 @@
                   <option>Lifetime Achievement Award in Innovation and IP</option>
                 </select>
               </div>
-              <div class="field"><label for="a-email">Email address <span class="req">*</span></label><input id="a-email" type="email" required></div>
-              <div class="field"><label for="a-phone">Phone / WhatsApp <span class="req">*</span></label><input id="a-phone" type="tel" required></div>
-              <div class="field"><label for="a-org">Organisation / Institution</label><input id="a-org" type="text"></div>
-              <div class="field"><label for="a-by">Nominated by</label><select id="a-by"><option>Self-nomination</option><option>Authorised representative</option><option>Another eligible person</option></select></div>
-              <div class="field full"><label for="a-ach">Key achievements</label><textarea id="a-ach" placeholder="Patents, publications, products, collaborations, impact..."></textarea></div>
+              <div class="field full"><label>Nomination type <span class="req">*</span></label>
+                <div class="choice-row">
+                  <label><input type="radio" name="Nomination type" value="Self-nomination" required> 1. Self-nomination</label>
+                  <label><input type="radio" name="Nomination type" value="Nomination by others"> 2. Nomination by others</label>
+                </div>
+              </div>
+              <div class="nominator-box" data-show-if="input[name='Nomination type'][value='Nomination by others']:checked" hidden>
+                <div class="field full"><label for="a-nom-name">Nominator's Name <span class="req">*</span></label><input id="a-nom-name" type="text" required></div>
+                <div class="field"><label for="a-nom-desig">Nominator's Designation and Organisation <span class="req">*</span></label><input id="a-nom-desig" type="text" required></div>
+                <div class="field"><label for="a-nom-contact">Nominator's Email Address and Mobile Number <span class="req">*</span></label><input id="a-nom-contact" type="text" required></div>
+              </div>
+              <div class="field full"><label for="a-ach">Key Achievements &amp; Contributions</label><textarea id="a-ach" placeholder="Patents, publications, products, collaborations, impact..."></textarea></div>
+              <div class="field"><label for="a-cv">Upload Professional Profile / CV <span class="req">*</span></label><input id="a-cv" name="Professional Profile / CV" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png" required><span class="hint">PDF, Word or image</span></div>
+              <div class="field"><label for="a-docs">Supporting Documents (Optional)</label><input id="a-docs" name="Supporting Documents" type="file" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.zip" multiple><span class="hint">You can select more than one file · max. 10 MB in total</span></div>
+              <div class="declaration">
+                <label class="check"><input type="checkbox" name="Declaration" value="Accepted" required> <span><strong>Declaration:</strong> I hereby confirm that the information provided is accurate and that the nominee’s details and supporting documents are submitted with the necessary consent. I further agree that, if selected for the award, I shall pay the applicable award fee as prescribed by the <strong>International Industry, Institutions, Innovation &amp; Research Consortium</strong>. <span class="req text-orange">*</span></span></label>
+                <p class="form-note"><strong>Note:</strong> Submission of a nomination does not guarantee selection for an award. All nominations will be evaluated according to the applicable eligibility criteria and selection process.</p>
+              </div>
             </div>
             <div class="form-foot">
-              <small>Submitting opens WhatsApp with the nomination details pre-filled.</small>
-              <button class="btn btn-primary" type="submit"><i class="fa-brands fa-whatsapp"></i> Submit Nomination</button>
+              <small>Your nomination (with the uploaded files) is e-mailed to our team, and WhatsApp opens with the details pre-filled.</small>
+              <button class="btn btn-primary" type="submit"><i class="fa-solid fa-paper-plane"></i> Submit Nomination</button>
             </div>
             <div class="form-status" role="status" aria-live="polite"></div>
+            <template class="form-thanks"><strong>Thank you!</strong> Your award nomination has been submitted successfully. Our team will review your submission and update you regarding the next steps within 7 working days. For queries, please contact: <a href="tel:+919677367040">9677367040</a>. Thank you for your interest in the I³RC Awards.</template>
           </form>
         </div>
         <div class="reveal">
