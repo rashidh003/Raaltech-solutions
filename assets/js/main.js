@@ -7,19 +7,19 @@
 const SITE = {
   name: "International Industry, Institutions, Innovation & Research Consortium",
   short: "I³RC",
-  tagline: "Collaborate. Innovate. Protect IP.",
-  contactPerson: "Dr. A. Matheswaran",
-  contactRole: "Technical Lead – I³RC",
+  tagline: "Collaborate. Innovate. Protect.",
   // Number shown for calls and queries
-  phoneDisplay: "+91 96773 67040",
-  phoneLink: "+919677367040",
+  phoneDisplay: "+91 70940 77040",
+  phoneLink: "+917094077040",
   // Number that receives WhatsApp messages and form submissions
   whatsapp: "919894407323",
   // Gmail address that receives every form submission (via FormSubmit.co).
   // Put the address between the quotes, e.g. "yourname@gmail.com". The first
   // submission sends a one-time activation email to that inbox — click it once.
   formEmail: "",
-  email: "", // add an official e-mail address here to show it across the site
+  email: "iiirc@gmail.com", // official e-mail address shown across the site
+  // Postal address shown on the Contact page and in the footer. Use "\n" for line breaks.
+  address: "",
   conferenceUrl: "https://iciprrdac.com/",
   // Replace "#" with the official profile URLs. Empty strings hide the icon.
   social: {
@@ -35,8 +35,23 @@ const SITE = {
 const ANNOUNCEMENTS = [
   { text: "ICIPRRDAC 2026 — International Conference on IPR, R&D & Awards Ceremony · 1–4 Dec 2026 · Shinawatra University, Thailand", href: "announcements.html" },
   { text: "I³RC Membership now open for industries, institutions, faculty, researchers, startups, MSMEs & students", href: "membership.html#apply" },
-  { text: "Call for Award Nominations — ten I³RC award categories", href: "awards.html#apply" },
+  { text: "Call for Award Nominations — I³RC Awards of Excellence", href: "awards.html#apply" },
   { text: "Propose a collaborative event or request support from I³RC", href: "collaboration.html#request-form" }
+];
+
+/* Orange announcement strip shown below the main menu on every page */
+const HIGHLIGHTS = [
+  { text: "ICIPRRDAC 2026 — International Conference on IPR, R&D & Awards Ceremony · 1–4 Dec 2026 · Thailand", link: "View details", href: "announcements.html" },
+  { text: "I³RC Membership now open", link: "Apply now", href: "membership.html#apply" },
+  { text: "Call for Award Nominations", link: "Nominate", href: "awards.html#apply" },
+  { text: "Collaboration Activities & Support Requests open", link: "Submit a proposal", href: "collaboration.html#request-form" }
+];
+
+/* Sustainable Development Goals supported by I³RC (shown in the footer) */
+const SDGS = [
+  { no: 4, title: "Quality Education" },
+  { no: 9, title: "Industry, Innovation and Infrastructure" },
+  { no: 17, title: "Partnerships for the Goals" }
 ];
 
 const NAV = [
@@ -94,14 +109,6 @@ const NAV = [
       { label: "Collaboration Activities & Support Request Form", href: "collaboration.html#request-form", icon: "fa-file-pen" }
     ]
   },
-  {
-    label: "Publications", href: "publications.html", page: "publications", children: [
-      { label: "Newsletters", href: "publications.html#newsletters", icon: "fa-newspaper" },
-      { label: "Technical Reports", href: "publications.html#reports", icon: "fa-file-lines" },
-      { label: "Research Publications", href: "publications.html#research", icon: "fa-book-open" },
-      { label: "Case Studies", href: "publications.html#case-studies", icon: "fa-magnifying-glass-chart" }
-    ]
-  },
   { label: "Announcements", href: "announcements.html", page: "announcements", badge: "New" },
   { label: "Contact", href: "contact.html", page: "contact" }
 ];
@@ -133,6 +140,35 @@ function tickerHTML() {
       <span class="ticker-label">NEW</span>
       <div class="marquee" data-marquee><div class="marquee-track">${items}</div></div>
     </div>`;
+}
+
+function highlightsHTML() {
+  const items = HIGHLIGHTS.map((h) => `
+            <span>${h.text}</span>
+            <a href="${h.href}">${h.link} <i class="fa-solid fa-arrow-right"></i></a>
+            <span class="sep">✦</span>`).join("");
+  return `
+    <div class="announce-strip" aria-label="Highlights">
+      <div class="container">
+        <span class="pill">Announcement</span>
+        <div class="marquee" data-marquee><div class="marquee-track">${items}</div></div>
+      </div>
+    </div>`;
+}
+
+function sdgHTML() {
+  const tiles = SDGS.map((g) => `<li><img src="assets/img/sdg/sdg-${String(g.no).padStart(2, "0")}.png" alt="SDG ${g.no}: ${g.title}" title="SDG ${g.no}: ${g.title}" width="113" height="113" loading="lazy"></li>`).join("");
+  return `
+      <div class="footer-sdg">
+        <div class="container">
+          <div class="sdg-text">
+            <span class="sdg-label">We support the</span>
+            <strong>Sustainable Development Goals</strong>
+            <span>SDG ${SDGS.map((g) => g.no).join(", ").replace(/, (\d+)$/, " &amp; $1")}</span>
+          </div>
+          <ul class="sdg-tiles">${tiles}</ul>
+        </div>
+      </div>`;
 }
 
 function renderHeader(current) {
@@ -174,12 +210,14 @@ function renderHeader(current) {
         </nav>
       </div>
     </header>
+    ${highlightsHTML()}
     <div class="nav-overlay" id="navOverlay"></div>`;
 }
 
 function renderFooter() {
   const year = new Date().getFullYear();
   const emailRow = SITE.email ? `<li><i class="fa-solid fa-envelope"></i><a href="mailto:${SITE.email}">${SITE.email}</a></li>` : "";
+  const addressRow = SITE.address ? `<li><i class="fa-solid fa-location-dot"></i><span>${SITE.address.replace(/\n/g, "<br>")}</span></li>` : "";
   return `
     <footer class="site-footer">
       <div class="container footer-grid">
@@ -199,7 +237,6 @@ function renderFooter() {
             <li><a href="events.html">Events &amp; Programmes</a></li>
             <li><a href="awards.html">Awards &amp; Recognition</a></li>
             <li><a href="collaboration.html">Collaboration &amp; Support</a></li>
-            <li><a href="publications.html">Publications &amp; Resources</a></li>
             <li><a href="announcements.html">Announcements</a></li>
           </ul>
         </div>
@@ -216,14 +253,15 @@ function renderFooter() {
         <div>
           <h4>Get in Touch</h4>
           <ul class="footer-contact">
-            <li><i class="fa-solid fa-user"></i><span><strong style="color:#fff">${SITE.contactPerson}</strong><br>${SITE.contactRole}</span></li>
             <li><i class="fa-solid fa-phone"></i><a href="tel:${SITE.phoneLink}">${SITE.phoneDisplay}</a></li>
             <li><i class="fa-brands fa-whatsapp"></i><a href="https://wa.me/${SITE.whatsapp}" target="_blank" rel="noopener">Chat on WhatsApp</a></li>
             ${emailRow}
+            ${addressRow}
             <li><i class="fa-solid fa-globe"></i><a href="${SITE.conferenceUrl}" target="_blank" rel="noopener">iciprrdac.com</a></li>
           </ul>
         </div>
       </div>
+      ${sdgHTML()}
       <div class="footer-bottom">
         <div class="container">
           <span>© ${year} ${SITE.name} (${SITE.short}). All rights reserved.</span>
@@ -588,6 +626,27 @@ function initForms() {
   });
 }
 
+/* Members directory: a tab per membership category shows only that category's members */
+function initDirectory() {
+  document.querySelectorAll("[data-directory]").forEach((dir) => {
+    const tabs = [...dir.querySelectorAll("[data-filter]")];
+    const members = [...dir.querySelectorAll("[data-category]")];
+    const empty = dir.querySelector(".dir-empty");
+    const show = (cat) => {
+      tabs.forEach((t) => t.setAttribute("aria-pressed", String(t.dataset.filter === cat)));
+      let count = 0;
+      members.forEach((m) => {
+        const match = cat === "all" || m.dataset.category === cat;
+        m.hidden = !match;
+        if (match) count++;
+      });
+      if (empty) empty.hidden = count > 0;
+    };
+    tabs.forEach((t) => t.addEventListener("click", () => show(t.dataset.filter)));
+    show((tabs.find((t) => t.getAttribute("aria-pressed") === "true") || tabs[0]).dataset.filter);
+  });
+}
+
 function initLightbox() {
   const triggers = document.querySelectorAll("[data-lightbox]");
   if (!triggers.length) return;
@@ -620,6 +679,8 @@ document.addEventListener("DOMContentLoaded", () => {
   if (head) head.outerHTML = renderHeader(page);
   if (foot) foot.outerHTML = renderFooter();
   document.querySelectorAll("[data-phone]").forEach((el) => { el.textContent = SITE.phoneDisplay; });
+  document.querySelectorAll("[data-email]").forEach((el) => { el.textContent = SITE.email; el.href = `mailto:${SITE.email}`; });
+  document.querySelectorAll("[data-address]").forEach((el) => { if (SITE.address) el.innerHTML = SITE.address.replace(/\n/g, "<br>"); });
   initNav();
   initScroll();
   initMarquees();
@@ -627,6 +688,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initReveal();
   initSubnav();
   initForms();
+  initDirectory();
   initLightbox();
 });
 

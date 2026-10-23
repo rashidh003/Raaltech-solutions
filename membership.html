@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <script src="assets/js/main.js" defer></script>
@@ -166,7 +166,7 @@
             <div class="contact-tile"><i class="fa-solid fa-2"></i><div><h4>Verification</h4><p>Our team reviews eligibility and shares the formal application and fee details.</p></div></div>
             <div class="contact-tile"><i class="fa-solid fa-3"></i><div><h4>Welcome to I³RC</h4><p>On approval and fee payment, you join the I³RC network and its activities.</p></div></div>
           </div>
-          <div class="note navy mt-3"><i class="fa-solid fa-phone"></i><p>Prefer to talk? Call <a href="tel:+919677367040"><strong data-phone>+91 96773 67040</strong></a></p></div>
+          <div class="note navy mt-3"><i class="fa-solid fa-phone"></i><p>Prefer to talk? Call <a href="tel:+917094077040"><strong data-phone>+91 70940 77040</strong></a></p></div>
         </div>
       </div>
     </section>
@@ -179,39 +179,64 @@
           <h2>Our members</h2>
           <p>Meet the industries, institutions and professionals who make up the I³RC network.</p>
         </div>
+        <div data-directory>
+        <div class="dir-tabs" role="group" aria-label="Filter members by category">
+          <button type="button" data-filter="all" aria-pressed="true">All Members</button>
+          <button type="button" data-filter="industry" aria-pressed="false">Industry and Corporate Members</button>
+          <button type="button" data-filter="institutional" aria-pressed="false">Institutional Members</button>
+          <button type="button" data-filter="academic" aria-pressed="false">Academic and Faculty Members</button>
+          <button type="button" data-filter="research" aria-pressed="false">Research Scholar &amp; R&amp;D Professional Members</button>
+          <button type="button" data-filter="startup" aria-pressed="false">Startup and Entrepreneur Members</button>
+          <button type="button" data-filter="msme" aria-pressed="false">MSME Members</button>
+          <button type="button" data-filter="ip" aria-pressed="false">Intellectual Property Professional Members</button>
+          <button type="button" data-filter="student" aria-pressed="false">Student Members</button>
+          <button type="button" data-filter="professional" aria-pressed="false">Professional Members</button>
+        </div>
+        <!-- To add a member, copy a <figure> below and set data-category to the matching tab:
+             industry, institutional, academic, research, startup, msme, ip, student, professional -->
         <div class="member-gallery">
-          <figure class="member-frame reveal">
+          <figure class="member-frame" data-category="industry">
             <div class="frame"><img src="assets/img/members/member-placeholder.svg" alt="Member photo" width="400" height="500" loading="lazy"></div>
-            <figcaption><strong>Member Name</strong><span>Designation, Organisation</span><br><span class="chip">Industry and Corporate</span></figcaption>
+            <figcaption><strong>Member Name</strong><span>Designation</span><span>Organisation</span><span class="chip">Industry and Corporate</span></figcaption>
           </figure>
-          <figure class="member-frame reveal">
+          <figure class="member-frame" data-category="institutional">
             <div class="frame"><img src="assets/img/members/member-placeholder.svg" alt="Member photo" width="400" height="500" loading="lazy"></div>
-            <figcaption><strong>Member Name</strong><span>Designation, Organisation</span><br><span class="chip">Institutional</span></figcaption>
+            <figcaption><strong>Member Name</strong><span>Designation</span><span>Organisation</span><span class="chip">Institutional</span></figcaption>
           </figure>
-          <figure class="member-frame reveal">
+          <figure class="member-frame" data-category="academic">
             <div class="frame"><img src="assets/img/members/member-placeholder.svg" alt="Member photo" width="400" height="500" loading="lazy"></div>
-            <figcaption><strong>Member Name</strong><span>Designation, Organisation</span><br><span class="chip">Academic and Faculty</span></figcaption>
+            <figcaption><strong>Member Name</strong><span>Designation</span><span>Organisation</span><span class="chip">Academic and Faculty</span></figcaption>
           </figure>
-          <figure class="member-frame reveal">
+          <figure class="member-frame" data-category="research">
             <div class="frame"><img src="assets/img/members/member-placeholder.svg" alt="Member photo" width="400" height="500" loading="lazy"></div>
-            <figcaption><strong>Member Name</strong><span>Designation, Organisation</span><br><span class="chip">Research Scholar &amp; R&amp;D</span></figcaption>
+            <figcaption><strong>Member Name</strong><span>Designation</span><span>Organisation</span><span class="chip">Research Scholar &amp; R&amp;D Professional</span></figcaption>
           </figure>
-          <figure class="member-frame reveal">
+          <figure class="member-frame" data-category="startup">
             <div class="frame"><img src="assets/img/members/member-placeholder.svg" alt="Member photo" width="400" height="500" loading="lazy"></div>
-            <figcaption><strong>Member Name</strong><span>Designation, Organisation</span><br><span class="chip">Startup and Entrepreneur</span></figcaption>
+            <figcaption><strong>Member Name</strong><span>Designation</span><span>Organisation</span><span class="chip">Startup and Entrepreneur</span></figcaption>
           </figure>
-          <figure class="member-frame reveal">
+          <figure class="member-frame" data-category="msme">
             <div class="frame"><img src="assets/img/members/member-placeholder.svg" alt="Member photo" width="400" height="500" loading="lazy"></div>
-            <figcaption><strong>Member Name</strong><span>Designation, Organisation</span><br><span class="chip">MSME</span></figcaption>
+            <figcaption><strong>Member Name</strong><span>Designation</span><span>Organisation</span><span class="chip">MSME</span></figcaption>
           </figure>
-          <figure class="member-frame reveal">
+          <figure class="member-frame" data-category="ip">
             <div class="frame"><img src="assets/img/members/member-placeholder.svg" alt="Member photo" width="400" height="500" loading="lazy"></div>
-            <figcaption><strong>Member Name</strong><span>Designation, Organisation</span><br><span class="chip">IP Professional</span></figcaption>
+            <figcaption><strong>Member Name</strong><span>Designation</span><span>Organisation</span><span class="chip">Intellectual Property Professional</span></figcaption>
           </figure>
-          <figure class="member-frame reveal">
+          <figure class="member-frame" data-category="student">
             <div class="frame"><img src="assets/img/members/member-placeholder.svg" alt="Member photo" width="400" height="500" loading="lazy"></div>
-            <figcaption><strong>Member Name</strong><span>Designation, Organisation</span><br><span class="chip">Student</span></figcaption>
+            <figcaption><strong>Member Name</strong><span>Designation</span><span>Organisation</span><span class="chip">Student</span></figcaption>
           </figure>
+          <figure class="member-frame" data-category="professional">
+            <div class="frame"><img src="assets/img/members/member-placeholder.svg" alt="Member photo" width="400" height="500" loading="lazy"></div>
+            <figcaption><strong>Member Name</strong><span>Designation</span><span>Organisation</span><span class="chip">Professional</span></figcaption>
+          </figure>
+        </div>
+        <div class="placeholder dir-empty" hidden>
+          <i class="fa-solid fa-user-group"></i>
+          <h4>Members will be listed here soon</h4>
+          <p>Profiles in this category are added as members join the consortium.</p>
+        </div>
         </div>
         <p class="text-center muted mt-3" style="font-size:.92rem"><i class="fa-solid fa-circle-info text-orange"></i> Member photos and profiles are added as institutions, industries and professionals join the consortium.</p>
       </div>
